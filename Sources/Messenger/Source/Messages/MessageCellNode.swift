@@ -49,10 +49,10 @@ class MessageCellNode: ASCellNode, ASTextNodeDelegate {
 		
 		let urlDetector = try? NSDataDetector(types: NSTextCheckingAllSystemTypes)
 		urlDetector?
-			.enumerateMatches(in: messageViewModel.contentText, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: messageViewModel.contentText.characters.count)) {result, flags, stop in
+			.enumerateMatches(in: messageViewModel.contentText, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: messageViewModel.contentText.count)) {result, flags, stop in
 				if result?.resultType == NSTextCheckingResult.CheckingType.link, let url = result?.url {
 					var linkAttributes = KayakoLightStyle.MessageAttributes.linkAttrs
-					linkAttributes["TextLinkAttributeName"] = url
+					linkAttributes[NSAttributedStringKey.init("TextLinkAttributeName")] = url
 					attrString.addAttributes(linkAttributes, range: (result?.range)!)
 				}
 		}

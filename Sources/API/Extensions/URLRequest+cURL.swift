@@ -64,7 +64,7 @@ extension NSURLRequest {
 				let cookies = cookieStorage.cookies(for: URL!), !cookies.isEmpty
 			{
 				let string = cookies.reduce("") { $0 + "\($1.name)=\($1.value );" }
-				components.append("-b \"\(string.substring(to: string.index(before: string.endIndex)))\"")
+				components.append("-b \"\(string[..<string.index(before: string.endIndex)])\"")
 			}
 		}
 		

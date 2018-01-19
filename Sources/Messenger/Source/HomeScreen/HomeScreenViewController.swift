@@ -69,7 +69,7 @@ class HomeScreenViewController: UIViewController, ASTableDelegate {
 		newConversationButton.addTarget(self, action: #selector(newConversationButtonTapped), forControlEvents: ASControlNodeEvent.touchUpInside)
 		
 		node.layoutSpecBlock = {
-			[weak self] size in
+			[weak self] _,size in
 			guard let tableNode = self?.tableNode else {
 				return ASLayoutSpec()
 			}
@@ -101,7 +101,7 @@ class HomeScreenViewController: UIViewController, ASTableDelegate {
 	}
 	
 	
-	func newConversationButtonTapped() {
+	@objc func newConversationButtonTapped() {
 		if case .loaded(let starterData) = dataSource.state {
 			let messagesVC = MessagesViewController(conversationState: .new, configuration: configuration, starterData: starterData , client: dataSource.client)
 			self.navigationController?.pushViewController(messagesVC, animated: true)
@@ -113,7 +113,7 @@ class HomeScreenViewController: UIViewController, ASTableDelegate {
 		self.makeNavBarTransparent()
 	}
 	
-	func dismissVC() {
+	@objc func dismissVC() {
 		self.dismiss(animated: true, completion: nil)
 	}
 	

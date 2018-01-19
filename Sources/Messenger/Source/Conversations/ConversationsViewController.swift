@@ -67,7 +67,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 		return state != .loading
 	}
 	
-	func newConversationButtonTapped() {
+	@objc func newConversationButtonTapped() {
 		 //: PGDD Fix later
 		let messagesVC = MessagesViewController(conversationState: .new, configuration: configuration, starterData: starterData, client: .shared)
 		self.navigationController?.pushViewController(messagesVC, animated: true)
@@ -99,7 +99,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 		//: For sticky header
 		self.automaticallyAdjustsScrollViewInsets = true
 		self.title = "Conversations"
-		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
 	}
 	
 	

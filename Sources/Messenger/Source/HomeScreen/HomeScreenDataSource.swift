@@ -40,7 +40,7 @@ open class HomeScreenDataSource: NSObject, ASTableDataSource {
 
 	}
 	
-	public func load() {
+	@objc public func load() {
 		client.load(resource: NetworkResource<StarterData>.standalone) { (result) in
 			switch result {
 			case .failure(let error):

@@ -126,11 +126,11 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
         
         _textView.maxNumberOfLines = defaultNumberOfLines()
         
-		if let color = KayakoLightStyle.MessageAttributes.placeholderAttrs[NSForegroundColorAttributeName] as? UIColor {
+		if let color = KayakoLightStyle.MessageAttributes.placeholderAttrs[NSAttributedStringKey.foregroundColor] as? UIColor {
 			_textView.placeholderColor = color
 		}
         
-        _textView.font = UIFont.systemFont(ofSize: FontSize.callout, weight: UIFontWeightRegular)
+        _textView.font = UIFont.systemFont(ofSize: FontSize.callout, weight: UIFont.Weight.regular)
         _textView.textColor = UIColor.darkGray
 
         _textView.backgroundColor = .clear
@@ -194,9 +194,9 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
 		let attributedMarketingString = NSMutableAttributedString(string: Bool.random() ? "Live Chat by Kayako" : "Messenger by Kayako")
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.alignment = .right
-		attributedMarketingString.setAttributes([NSParagraphStyleAttributeName: paragraphStyle], range: NSRange.init(location: 0, length: attributedMarketingString.string.characters.count))
-		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingStyle, range: NSRange.init(location: 0, length: attributedMarketingString.string.characters.count - 6))
-		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingBoldStyle, range: NSRange.init(location: attributedMarketingString.string.characters.count - 6, length: 6))
+		attributedMarketingString.setAttributes([NSAttributedStringKey.paragraphStyle: paragraphStyle], range: NSRange.init(location: 0, length: attributedMarketingString.string.count))
+		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingStyle, range: NSRange.init(location: 0, length: attributedMarketingString.string.count - 6))
+		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingBoldStyle, range: NSRange.init(location: attributedMarketingString.string.count - 6, length: 6))
 		
 		marketingButton.setAttributedTitle(attributedMarketingString, for: .normal)
 		addSubnode(marketingButton)
@@ -206,18 +206,18 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
     }
 	
 	
-	func marketingButtonTapped() {
+	@objc func marketingButtonTapped() {
 		let appName = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String
 		if let url = URL(string: "https://www.kayako.com/?utm_source=kayako-mobile-testing.kayako.com&utm_medium=messenger&utm_content=messenger-by-kayako&utm_campaign=product_links&app_name=" + (appName ?? "")) {
 			UIApplication.shared.openURL(url)
 		}
 	}
 	
-	func sendTapped() {
+	@objc func sendTapped() {
 		replyBoxDelegate?.sendButtonTapped(with: text, textView: textView)
 	}
 	
-	func attachmentTapped() {
+	@objc func attachmentTapped() {
 		replyBoxDelegate?.attachmentButtonTapped()
 	}
     
@@ -348,7 +348,7 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
         
         self.textView.textViewDidChange()
 
-        let shouldShowButton = textView.text.characters.count > 0
+        let shouldShowButton = textView.text.count > 0
         
         if showRightButton != shouldShowButton && !alwaysShowRightButton {
             showRightButton = shouldShowButton

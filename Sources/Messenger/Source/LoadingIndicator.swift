@@ -24,7 +24,7 @@ class LoadingIndicator: ASDisplayNode {
 		indicatorNode.style.width = ASDimensionMake(30)
 		(indicatorNode.view as? NVActivityIndicatorView)?.startAnimating()
 		self.layoutSpecBlock = {
-			size in
+			size,_ in
 			return ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .center, alignItems: .center, children: [self.indicatorNode])
 		}
 	}

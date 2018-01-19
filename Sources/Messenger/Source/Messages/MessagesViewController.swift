@@ -114,7 +114,7 @@ class MessagesViewController: UIViewController, UIGestureRecognizerDelegate, ALT
 		}
 	}
 	
-	func detect() {
+	@objc func detect() {
 //		let cells = tableNode.visibleNodes
 //		for cell  in cells {
 //			cell.view.transform = CGAffineTransform.init(translationX: panGR.translation(in: view).x, y: 0)

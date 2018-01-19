@@ -37,7 +37,7 @@ class TypingIndicator: ASCellNode {
 		let text = [subject(for: agentFirstNames), verb(for: agentFirstNames), " typing"].joined(separator: " ")
 		
 		let attrString = NSMutableAttributedString.init(string: text, attributes: KayakoLightStyle.MessageStatusAttributes.typingIndicator)
-		attrString.setAttributes(KayakoLightStyle.MessageStatusAttributes.typingIndicatorBold, range: NSMakeRange(0, subject(for: agentFirstNames).characters.count))
+		attrString.setAttributes(KayakoLightStyle.MessageStatusAttributes.typingIndicatorBold, range: NSMakeRange(0, subject(for: agentFirstNames).count))
 		textNode.attributedText = attrString
 	}
 }
