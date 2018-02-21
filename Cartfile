@@ -1,6 +1,6 @@
-github "johnsundell/unbox"
-github "johnsundell/wrap"
-github "codeOfRobin/Birdsong" ~> 0.5.0
 github "aschuch/StatefulViewController" ~> 3.0
 github "codeOfRobin/NVActivityIndicatorView" "master"
 github "codeOfRobin/PINCache-Texture" "master"
+github "johnsundell/unbox"
+github "johnsundell/wrap"
+github "codeOfRobin/Birdsong" "other-starscream"
