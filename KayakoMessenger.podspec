@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "KayakoMessenger"
-  s.version      = "0.3.0"
+  s.version      = "0.4.0"
   s.summary      = "The Kayako iOS SDK for integrating Kayako Messenger live chat into your iOS application"
   s.description  = "The Kayako iOS SDK for integrating Kayako Messenger live chat into your iOS application. Supports iOS 9 and above"
   s.homepage     = "https://github.com/kayako/KayakoMessengeriOS"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.license      = { :type => "Apache", :file => "LICENSE" }
   s.author             = { "Robin Malhotra" => "robin.malhotra@kayako.com" }
   s.social_media_url   = "https://twitter.com/codeOfRobin"
   s.ios.deployment_target = "9.0"

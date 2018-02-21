@@ -26,6 +26,13 @@ class FeedbackInputNode: ASDisplayNode {
 		
 		titleNode.attributedText = NSAttributedString(string: "Feedback", attributes: KayakoLightStyle.FeedbackAttributes.headerStyle)
 		feedbackTextField.typingAttributes = KayakoLightStyle.FeedbackAttributes.feedbackStyle
+			.map{ ($0.key.rawValue, $0.value) }
+			.reduce([:], { (dict, arg1) in
+				let (key, val) = arg1
+				var copy = dict
+				copy?[key] = val
+				return copy
+			})
 		feedbackTextField.attributedPlaceholderText = NSAttributedString(string: "Start typing here", attributes: KayakoLightStyle.FeedbackAttributes.feedbackPlaceholderStyle)
 		
 		feedbackTextField.style.minHeight = ASDimensionMake(70)
@@ -39,7 +46,7 @@ class FeedbackInputNode: ASDisplayNode {
 		submitButton.addTarget(parent, action: #selector(BotFeedbackQuestionNode.feedbackSubmitted), forControlEvents: .touchUpInside)
 		
 		inputContainer.layoutSpecBlock = {
-			[weak self] size in
+			[weak self] size,_ in
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 10.0, justifyContent: .center, alignItems: .stretch, children: [self?.titleNode, self?.feedbackTextField].flatMap{ $0 })
 			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(21, 15, 21, 15), child: stack)
 		}
@@ -102,7 +109,7 @@ open class BotFeedbackSubmissionNode: ASDisplayNode {
 		super.init()
 		feedbackImageNode.image = KayakoResources.blob(botFeedback.feedback ?? .good, .deselected).image
 		var regularAttrs = KayakoLightStyle.BotMessageAttributes.textAnswerStyle
-		regularAttrs[NSFontAttributeName] = UIFont.italicSystemFont(ofSize: FontSize.callout)
+		regularAttrs[NSAttributedStringKey.font] = UIFont.italicSystemFont(ofSize: FontSize.callout)
 		feedbackTextNode.attributedText = NSAttributedString(string: "\"\(botFeedback.feedbackText ?? "")\"", attributes: regularAttrs)
 		self.automaticallyManagesSubnodes = true
 		
@@ -178,7 +185,7 @@ open class BotFeedbackQuestionNode: ASCellNode {
 		(segmentedControl.view as? UISegmentedControl)?.addTarget(self, action: #selector(segmentTapped), for: UIControlEvents.valueChanged)
 	}
 	
-	func segmentTapped() {
+	@objc func segmentTapped() {
 		guard let segment = segmentedControl.view as? UISegmentedControl else { return }
 		if segment.selectedSegmentIndex == 0 {
 			segment.tintColor = ColorPallete.sentColor
@@ -202,7 +209,7 @@ open class BotFeedbackQuestionNode: ASCellNode {
 		}
 	}
 	
-	func feedbackSubmitted() {
+	@objc func feedbackSubmitted() {
 		guard let segment = segmentedControl.view as? UISegmentedControl else { return }
 		let feedbackType: BotFeedbackType = (segment.selectedSegmentIndex == 0) ? .good : .bad
 		let feedbackText = feedbackNode.feedbackTextField.textView.text

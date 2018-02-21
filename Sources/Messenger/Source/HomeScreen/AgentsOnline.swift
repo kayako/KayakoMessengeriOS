@@ -77,7 +77,7 @@ class AgentsOnlineNode: ASCellNode {
 		}
 		
 		container.layoutSpecBlock = {
-			[weak self] size in
+			[weak self] _,size in
 			guard let strongSelf = self else { return ASLayoutSpec() }
 			var elements: [ASLayoutElement] = [strongSelf.headerNode]
 			strongSelf.headerNode.style.spacingAfter = 6.0

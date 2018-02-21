@@ -25,7 +25,7 @@ class MessageStatusNode: ASCellNode {
 		switch status {
 		case .failed, .bounced:
 			let attrString = NSMutableAttributedString(string: status.statusText, attributes: KayakoLightStyle.MessageStatusAttributes.grayedOutStyle)
-			attrString.addAttributes([NSForegroundColorAttributeName: ColorPallete.primaryFailureColor], range: NSMakeRange(attrString.string.characters.count - "Resend".characters.count, "Resend".characters.count))
+			attrString.addAttributes([NSAttributedStringKey.foregroundColor: ColorPallete.primaryFailureColor], range: NSMakeRange(attrString.string.count - "Resend".count, "Resend".count))
 			statusTextNode.attributedText = attrString
 		case .delivered, .sending, .sent, .yetToSend, .custom:
 			statusTextNode.attributedText = NSAttributedString(string: status.statusText, attributes: KayakoLightStyle.MessageStatusAttributes.grayedOutStyle)
@@ -53,7 +53,7 @@ class MessageStatusNode: ASCellNode {
 		tapButton.backgroundColor = .clear
 	}
 	
-	func initiateResend() {
+	@objc func initiateResend() {
 		resendTapDelegate?.initiateResend()
 	}
 	

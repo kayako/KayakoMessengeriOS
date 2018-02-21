@@ -20,13 +20,13 @@ enum FontSize {
 }
 
 enum UIFontWeight {
-	static let bold = UIFontWeightBold,
-		semibold = UIFontWeightSemibold,
-		regular = UIFontWeightRegular,
-		light = UIFontWeightLight,
-		heavy = UIFontWeightHeavy,
-		black = UIFontWeightBlack,
-		ultraLight = UIFontWeightUltraLight
+	static let bold = UIFont.Weight.bold,
+		semibold = UIFont.Weight.semibold,
+		regular = UIFont.Weight.regular,
+		light = UIFont.Weight.light,
+		heavy = UIFont.Weight.heavy,
+		black = UIFont.Weight.black,
+		ultraLight = UIFont.Weight.ultraLight
 }
 
 public enum ColorPallete {
@@ -52,11 +52,11 @@ public enum ColorPallete {
 	white = UIColor.white
 }
 
-func stringAttributes(withSize size: CGFloat, weight: CGFloat, color: UIColor) -> [String: Any] {
+func stringAttributes(withSize size: CGFloat, weight: CGFloat, color: UIColor) -> [NSAttributedStringKey: Any] {
 
 	return [
-		NSFontAttributeName: UIFont.systemFont(ofSize: size, weight: weight),
-		NSForegroundColorAttributeName: color
+		NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: weight)),
+		NSAttributedStringKey.foregroundColor: color
 	]
 }
 
@@ -64,80 +64,80 @@ enum KayakoLightStyle {
 	
 	enum HomescreenAttributes {
 		static let
-		welcomeSubtitleStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.white),
-		nameStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold, color: ColorPallete.primaryTextColor),
-		bodyStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		widgetHeadingStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.bold, color: ColorPallete.primaryBrandingColor),
-		widgetSubHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		lightSubtextStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.tertiaryTextColor),
-		unreadIndicatorStyle = stringAttributes(withSize: 12, weight: UIFontWeight.bold, color: ColorPallete.white)
+		welcomeSubtitleStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.white),
+		nameStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.primaryTextColor),
+		bodyStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		widgetHeadingStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.bold.rawValue, color: ColorPallete.primaryBrandingColor),
+		widgetSubHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		lightSubtextStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.tertiaryTextColor),
+		unreadIndicatorStyle = stringAttributes(withSize: 12, weight: UIFontWeight.bold.rawValue, color: ColorPallete.white)
 	}
 	
 	enum ConversationAttributes {
 		static let
-		nameStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold, color: ColorPallete.primaryTextColor),
-		bodyStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.secondaryTextColor),
-		widgetHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.bold, color: ColorPallete.primaryBrandingColor),
-		widgetSubHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		lightSubtextStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.tertiaryTextColor),
-		conversationButtonStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold, color: .white)
+		nameStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.primaryTextColor),
+		bodyStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.secondaryTextColor),
+		widgetHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.bold.rawValue, color: ColorPallete.primaryBrandingColor),
+		widgetSubHeadingStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		lightSubtextStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.tertiaryTextColor),
+		conversationButtonStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold.rawValue, color: .white)
 	}
 	
 	enum MessageAttributes {
 		static let
-		darkBodyTextStyle = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		emojiBodyTextStyle = stringAttributes(withSize: 44, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		lightBodyTextStyle = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular, color: ColorPallete.white),
+		darkBodyTextStyle = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		emojiBodyTextStyle = stringAttributes(withSize: 44, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		lightBodyTextStyle = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular.rawValue, color: ColorPallete.white),
 		senderMessageBackgroundColor = UIColor(red:0.93, green:0.93, blue:0.94, alpha:1.00),
 		inputBorderColor = UIColor(red:0.80, green:0.81, blue:0.82, alpha:1.00),
 		inputBGColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00),
-		linkAttrs = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular, color: UIColor(red:0.31, green:0.69, blue:0.80, alpha:1.00)),
-		placeholderAttrs = [NSForegroundColorAttributeName: ColorPallete.placeholderTextColor, NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)] as [String : Any]
+		linkAttrs = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular.rawValue, color: UIColor(red:0.31, green:0.69, blue:0.80, alpha:1.00)),
+		placeholderAttrs: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: ColorPallete.placeholderTextColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)]
 	}
 	
 	enum BotMessageAttributes {
 		static let
-		headingStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.semibold, color: ColorPallete.secondaryTextColor),
-		placeholderStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.placeholderTextColor),
-		textAnswerStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor),
-		submitButtonStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold, color: ColorPallete.sentColor),
-		successfulAnswerStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.sentColor)
+		headingStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.secondaryTextColor),
+		placeholderStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.placeholderTextColor),
+		textAnswerStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor),
+		submitButtonStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.sentColor),
+		successfulAnswerStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.sentColor)
 	}
 	
 	enum ReplyBoxAttributes {
 		static let
-		marketingStyle = stringAttributes(withSize: 12, weight: UIFontWeight.regular, color: ColorPallete.marketingTextColor),
-		marketingBoldStyle = stringAttributes(withSize: 12, weight: UIFontWeight.semibold, color: ColorPallete.marketingTextColor)
+		marketingStyle = stringAttributes(withSize: 12, weight: UIFontWeight.regular.rawValue, color: ColorPallete.marketingTextColor),
+		marketingBoldStyle = stringAttributes(withSize: 12, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.marketingTextColor)
 	}
 	
 	enum MessageStatusAttributes {
-		static let grayedOutStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.placeholderTextColor)
-		static let seenStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.sentColor)
-		static let errorStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.primaryFailureColor)
-		static let typingIndicator = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular, color: ColorPallete.typingIndicatorColor)
-		static let typingIndicatorBold = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.semibold, color: ColorPallete.typingIndicatorColor)
+		static let grayedOutStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.placeholderTextColor)
+		static let seenStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.sentColor)
+		static let errorStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryFailureColor)
+		static let typingIndicator = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.regular.rawValue, color: ColorPallete.typingIndicatorColor)
+		static let typingIndicatorBold = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.typingIndicatorColor)
 	}
 	
 	enum AttachmentAttributes {
-		static let fileNameStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.semibold, color: ColorPallete.primaryTextColor)
+		static let fileNameStyle = stringAttributes(withSize: FontSize.footnote, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.primaryTextColor)
 	}
 	
 	enum MessageHeaderAttributes {
-		static let teamStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold, color: ColorPallete.white)
-		static let timeStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.regular, color: ColorPallete.white.withAlphaComponent(0.75))
-		static let activityStyle = stringAttributes(withSize: FontSize.footnote + 1, weight: UIFontWeight.regular, color: ColorPallete.white)
+		static let teamStyle = stringAttributes(withSize: FontSize.subHeading, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.white)
+		static let timeStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.regular.rawValue, color: ColorPallete.white.withAlphaComponent(0.75))
+		static let activityStyle = stringAttributes(withSize: FontSize.footnote + 1, weight: UIFontWeight.regular.rawValue, color: ColorPallete.white)
 	}
 	
 	enum FeedbackAttributes {
-		static let headerStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.semibold, color: ColorPallete.tertiaryTextColor)
-		static let feedbackStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.primaryTextColor)
-		static let feedbackPlaceholderStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular, color: ColorPallete.placeholderTextColor)
-		static let goodFeedbackSubmit = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold, color: ColorPallete.sentColor)
-		static let badFeedbackSubmit = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold, color: ColorPallete.primaryFailureColor)
+		static let headerStyle = stringAttributes(withSize: FontSize.smallTitle, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.tertiaryTextColor)
+		static let feedbackStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.primaryTextColor)
+		static let feedbackPlaceholderStyle = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.regular.rawValue, color: ColorPallete.placeholderTextColor)
+		static let goodFeedbackSubmit = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.sentColor)
+		static let badFeedbackSubmit = stringAttributes(withSize: FontSize.callout, weight: UIFontWeight.semibold.rawValue, color: ColorPallete.primaryFailureColor)
 	}
 	
 	enum DateSeparatorAttributes {
-		static let dateSeparatorTextStyle = stringAttributes(withSize: FontSize.footnote - 1, weight: UIFontWeight.regular, color: ColorPallete.placeholderTextColor)
+		static let dateSeparatorTextStyle = stringAttributes(withSize: FontSize.footnote - 1, weight: UIFontWeight.regular.rawValue, color: ColorPallete.placeholderTextColor)
 	}
 	
 	static func applyDefaults() {

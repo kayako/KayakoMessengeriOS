@@ -53,7 +53,7 @@ open class RecentConversationsNode: ASCellNode {
 		container.layer.cornerRadius = 6.0
 		
 		container.layoutSpecBlock = {
-			[weak self] size in
+			[weak self] size,_ in
 			guard let strongSelf = self else { return ASLayoutSpec() }
 			let elements = [strongSelf.headerNode as ASLayoutElement] + strongSelf.conversationNodes.map{ $0 as ASLayoutElement }
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .start, alignItems: .stretch, children: elements)
@@ -134,7 +134,7 @@ open class RecentConversationsCell: ASCellNode {
 		self.automaticallyManagesSubnodes = true
 	}
 	
-	func tapped(sender: UITapGestureRecognizer) {
+	@objc func tapped(sender: UITapGestureRecognizer) {
 		tappedDelegate?.conversationTapped(conversation, sender: self)
 		switch sender.state {
 		case .began:
@@ -187,7 +187,7 @@ class ConversationHeaderCell: ASDisplayNode {
 		self.style.height = ASDimensionMake(34.0)
 	}
 	
-	func viewAllTapped() {
+	@objc func viewAllTapped() {
 		viewAllTappedDelegate?.viewAllTapped()
 	}
 	

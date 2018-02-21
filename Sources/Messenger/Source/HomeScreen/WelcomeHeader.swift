@@ -32,7 +32,7 @@ open class WelcomeHeader: ASCellNode {
 	}
 	
 	func reload(with welcomeMessage: WelcomeMessage) {
-		welcomeMessageNode.attributedText = NSAttributedString(string: welcomeMessage.message, attributes: [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont.preferredFont(forTextStyle: .title1)])
+		welcomeMessageNode.attributedText = NSAttributedString(string: welcomeMessage.message, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.preferredFont(forTextStyle: .title1)])
 		subtextMessageNode.attributedText = NSAttributedString(string: welcomeMessage.subtext, attributes: KayakoLightStyle.HomescreenAttributes.welcomeSubtitleStyle)
 	}
 	

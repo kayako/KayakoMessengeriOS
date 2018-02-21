@@ -47,7 +47,7 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		inputContainer.addSubnode(headingNode)
 		inputContainer.addSubnode(entryNode)
 		inputContainer.layoutSpecBlock = {
-			_ in
+			_,_ in
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 10.0, justifyContent: .center, alignItems: .stretch, children: [self.headingNode, self.entryNode])
 			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(21, 15, 21, 15), child: stack)
 		}
@@ -62,7 +62,7 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		successfulEntryContainer.addSubnode(successfulEntry)
 		self.addSubnode(successfulEntryContainer)
 		successfulEntryContainer.layoutSpecBlock = {
-			[weak self] size in
+			[weak self] _,size in
 			guard let strongSelf = self else { return ASLayoutSpec() }
 			let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0.0, justifyContent: .end, alignItems: .center, children: [strongSelf.successfulEntry])
 			return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 4, left: 4, bottom: 4, right: 18), child: stack)
@@ -95,11 +95,11 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 			}
 		}()
 		
-		let headingStyle: [String: Any] = {
+		let headingStyle: [NSAttributedStringKey: Any] = {
 			switch state {
 			case .failed:
 				var headingStyle = KayakoLightStyle.BotMessageAttributes.headingStyle
-				headingStyle[NSForegroundColorAttributeName] = ColorPallete.primaryFailureColor
+				headingStyle[NSAttributedStringKey.foregroundColor] = ColorPallete.primaryFailureColor
 				return headingStyle
 			default:
 				return KayakoLightStyle.BotMessageAttributes.headingStyle
@@ -110,7 +110,14 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		
 		entryNode.attributedPlaceholderText = NSAttributedString(string: question.placeholder, attributes: KayakoLightStyle.BotMessageAttributes.placeholderStyle)
 		entryNode.attributedText = NSAttributedString(string: question.value, attributes: KayakoLightStyle.BotMessageAttributes.textAnswerStyle)
-		entryNode.typingAttributes = KayakoLightStyle.BotMessageAttributes.textAnswerStyle
+		entryNode.typingAttributes = KayakoLightStyle.BotMessageAttributes.textAnswerStyle.map{ ($0.key.rawValue, $0.value) }.reduce([:], { (dict, arg1) in
+			let (key, val) = arg1
+			var copy = dict
+			copy?[key] = val
+			return copy
+		})
+
+
 		entryNode.maximumLinesToDisplay = 2
 		
 		submitButton.setAttributedTitle(NSAttributedString(string: "Submit", attributes: KayakoLightStyle.BotMessageAttributes.submitButtonStyle), for: [])
@@ -174,7 +181,7 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		inputContainer.layer.insertSublayer(borderLayer, at: 0)
 	}
 	
-	func submitButtonTapped() {
+	@objc func submitButtonTapped() {
 		submitDelegate?.submit(text: entryNode.attributedText?.string ?? "")
 	}
 	

@@ -23,7 +23,7 @@ class CardPresentationController: UIPresentationController {
 		
 	}
 	
-	func dismissViewTapped() {
+	@objc func dismissViewTapped() {
 		presentingViewController.dismiss(animated: true) { 
 			print("dismissed")
 			print(self.presentingViewController)

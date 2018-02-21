@@ -101,13 +101,14 @@ public enum AttachmentMIMEType {
 	}
 }
 
-fileprivate extension String {
-	func subString(startIndex: Int, endIndex: Int) -> String {
-		guard endIndex > startIndex else {
-			fatalError("End index of slice cannot be less than Start Index")
-		}
-		
-		let range = Range(uncheckedBounds: (self.index(self.startIndex, offsetBy: startIndex), self.index(self.startIndex, offsetBy: endIndex)))
-		return self.substring(with: range)
-	}
-}
+//fileprivate extension String {
+//	func subString(startIndex: Int, endIndex: Int) -> String {
+//		guard endIndex > startIndex else {
+//			fatalError("End index of slice cannot be less than Start Index")
+//		}
+//		
+//		let range = Range(uncheckedBounds: (self.index(self.startIndex, offsetBy: startIndex), self.index(self.startIndex, offsetBy: endIndex)))
+//		return self.substring(with: range)
+//	}
+//}
+

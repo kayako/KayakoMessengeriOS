@@ -73,7 +73,7 @@ class AttachmentCellNode: ASCellNode {
 		fileNameNode.attributedText = NSAttributedString(string: attachmentViewModel.name, attributes: KayakoLightStyle.AttachmentAttributes.fileNameStyle)
 	}
 	
-	func tapped() {
+	@objc func tapped() {
 		delegate?.attachmentWasTapped(sender: self)
 		self.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
 	}
