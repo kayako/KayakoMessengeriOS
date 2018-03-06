@@ -1,6 +1,6 @@
 git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
 github "aschuch/StatefulViewController" "3.0.1"
-github "codeOfRobin/Birdsong" "efd911236fc6bd9d593b6c5d5f407a755d31f2da"
+github "codeOfRobin/Birdsong" "535d7ee96a2b0aa39fde3bf1825c09c7ebf8aa1a"
 github "codeOfRobin/NVActivityIndicatorView" "58c8cfdee11bcc7460ff83f66850242e3d45149a"
 github "codeOfRobin/PINCache-Texture" "2e1465f7497dbb8b44a3d980508ad88ed1bcd267"
 github "daltoniam/Starscream" "31f522155a4d6323cd1aaefb8dbc140ced7be1ca"
