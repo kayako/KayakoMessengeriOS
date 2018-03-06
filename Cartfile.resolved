@@ -1,2 +1,6 @@
-github "codeOfRobin/Birdsong" "c0aae51284d45692490b7fd17bb7ba2a521f8f3e"
-github "rastersize/Starscream" "327a7d8e9e395e51709944f7ad344deec18ea1a4"
+git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
+github "codeOfRobin/PINCache-Texture" "1.1.2"
+github "pinterest/PINCache" "3.0.1-beta.6"
+github "pinterest/PINOperation" "1.1.1"
+github "pinterest/PINRemoteImage" "3.0.0-beta.13"
+github "texturegroup/texture" "2.6"

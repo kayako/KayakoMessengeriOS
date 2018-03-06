@@ -42,7 +42,9 @@ class CondensedAgentView: ASDisplayNode {
 			case .image(let image):
 				imageNode.image = image
 			case .url(let url):
-				imageNode.setImageURL(url)
+				if let url = url {
+					imageNode.setImageVM(.url(url))
+				}
 			}
 			imageNode.style.width = ASDimensionMake(32)
 			imageNode.style.height = ASDimensionMake(32)

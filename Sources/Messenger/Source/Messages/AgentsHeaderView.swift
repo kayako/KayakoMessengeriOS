@@ -68,7 +68,9 @@ public class AgentsHeaderView: ASDisplayNode {
 			case .image(let image):
 				avatarImageNode.image = image
 			case .url(let url):
-				avatarImageNode.setImageURL(url)
+				if let url = url {
+					avatarImageNode.setImageVM(.url(url))
+				}
 			}
 			avatarImageNode.style.width = ASDimensionMake(52)
 			avatarImageNode.style.height = ASDimensionMake(52)

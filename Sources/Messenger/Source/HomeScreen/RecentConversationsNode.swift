@@ -109,8 +109,8 @@ open class RecentConversationsCell: ASCellNode {
 	init(conversation: ConversationViewModel) {
 		self.conversation = conversation
 		super.init()
-		
-		avatarNode.setImageURL(conversation.avatarURL)
+
+		avatarNode.setImageVM(.url(conversation.avatarURL))
 		nameNode.attributedText = NSAttributedString(string: conversation.name, attributes: KayakoLightStyle.HomescreenAttributes.nameStyle)
 		latestMessageNode.attributedText = NSAttributedString(string: conversation.lastMessage, attributes: KayakoLightStyle.HomescreenAttributes.bodyStyle)
 		latestMessageNode.maximumNumberOfLines = 1

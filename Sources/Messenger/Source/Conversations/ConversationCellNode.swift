@@ -23,7 +23,7 @@ class ConversationCellNode: ASCellNode {
 		self.conversation = conversation
 		super.init()
 
-		avatarImageNode.setImageURL(conversation.avatarURL)
+		avatarImageNode.setImageVM(.url(conversation.avatarURL))
 		
 		nameNode.attributedText = NSAttributedString(string: conversation.name, attributes: KayakoLightStyle.ConversationAttributes.nameStyle)
 		timeNode.attributedText = NSAttributedString(string: conversation.time, attributes: KayakoLightStyle.ConversationAttributes.lightSubtextStyle)

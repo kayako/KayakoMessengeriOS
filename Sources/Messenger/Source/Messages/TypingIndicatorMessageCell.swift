@@ -41,7 +41,9 @@ class TypingIndicatorMessageCell: ASCellNode {
 		case .image(let image):
 			avatarNode.image = image
 		case .url(let url):
-			avatarNode.setImageURL(url)
+			if let url = url {
+				avatarNode.setImageVM(.url(url))
+			}
 		}
 	}
 	

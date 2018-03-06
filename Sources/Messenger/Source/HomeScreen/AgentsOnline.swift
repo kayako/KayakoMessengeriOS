@@ -44,7 +44,7 @@ class AgentsOnlineNode: ASCellNode {
 			node.clipsToBounds = true
 			node.layer.cornerRadius = 25.0
 //			node.url = $0.avatar
-			node.setImageURL($0.avatar)
+			node.setImageVM(.url($0.avatar))
 			
 			return node
 		}
