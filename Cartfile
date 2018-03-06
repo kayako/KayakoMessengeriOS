@@ -1,6 +1,6 @@
 github "aschuch/StatefulViewController" ~> 3.0
+github "codeOfRobin/PINCache-Texture" "master"
 github "codeOfRobin/NVActivityIndicatorView" "master"
 github "johnsundell/unbox"
 github "johnsundell/wrap"
 github "codeOfRobin/Birdsong" "other-starscream"
-github "codeOfRobin/PINCache-Texture" ~> 1.1.2
