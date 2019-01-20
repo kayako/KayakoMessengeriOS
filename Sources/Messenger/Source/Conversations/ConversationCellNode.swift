@@ -7,7 +7,6 @@
 //
 
 import AsyncDisplayKit
-import PINCacheTexture
 
 class ConversationCellNode: ASCellNode {
 
@@ -23,8 +22,9 @@ class ConversationCellNode: ASCellNode {
 		self.conversation = conversation
 		super.init()
 
-		avatarImageNode.setImageVM(.url(conversation.avatarURL))
-		
+		//avatarImageNode.setImageVM(.url(conversation.avatarURL))
+		avatarImageNode.url = conversation.avatarURL
+        
 		nameNode.attributedText = NSAttributedString(string: conversation.name, attributes: KayakoLightStyle.ConversationAttributes.nameStyle)
 		timeNode.attributedText = NSAttributedString(string: conversation.time, attributes: KayakoLightStyle.ConversationAttributes.lightSubtextStyle)
 		lastMessageNode.attributedText = NSAttributedString(string: conversation.lastMessage, attributes: KayakoLightStyle.ConversationAttributes.bodyStyle)

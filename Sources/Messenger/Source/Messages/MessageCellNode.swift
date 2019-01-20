@@ -70,7 +70,8 @@ class MessageCellNode: ASCellNode, ASTextNodeDelegate {
 				avatarNode.image = image
 			case .url(let url):
 				if let url = url {
-					avatarNode.setImageVM(.url(url))
+					//avatarNode.setImageVM(.url(url))
+                    avatarNode.url = url
 				}
 			}
 		}

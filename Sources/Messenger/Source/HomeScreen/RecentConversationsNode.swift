@@ -7,7 +7,6 @@
 //
 
 import AsyncDisplayKit
-import PINCacheTexture
 
 public struct ConversationViewModel {
 	let id: Int
@@ -110,7 +109,8 @@ open class RecentConversationsCell: ASCellNode {
 		self.conversation = conversation
 		super.init()
 
-		avatarNode.setImageVM(.url(conversation.avatarURL))
+		//avatarNode.setImageVM(.url(conversation.avatarURL))
+        avatarNode.url = conversation.avatarURL
 		nameNode.attributedText = NSAttributedString(string: conversation.name, attributes: KayakoLightStyle.HomescreenAttributes.nameStyle)
 		latestMessageNode.attributedText = NSAttributedString(string: conversation.lastMessage, attributes: KayakoLightStyle.HomescreenAttributes.bodyStyle)
 		latestMessageNode.maximumNumberOfLines = 1

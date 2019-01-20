@@ -7,7 +7,6 @@
 //
 
 import AsyncDisplayKit
-import PINCacheTexture
 
 struct CondensedAgentViewModel {
 	let agentAvatars: [(avatar: AvatarViewModel, isOnline: Bool)]
@@ -32,9 +31,11 @@ class CondensedAgentView: ASDisplayNode {
 	
 	func load(_ condensedAgentViewModel: CondensedAgentViewModel) {
 		
-		for node in self.subnodes {
-			node.removeFromSupernode()
-		}
+        if let subnodes = self.subnodes {
+            for node in subnodes {
+                node.removeFromSupernode()
+            }
+        }
 		
 		self.avatarNodes = condensedAgentViewModel.agentAvatars.map {
 			let imageNode = ASNetworkImageNode()
@@ -43,7 +44,8 @@ class CondensedAgentView: ASDisplayNode {
 				imageNode.image = image
 			case .url(let url):
 				if let url = url {
-					imageNode.setImageVM(.url(url))
+					//imageNode.setImageVM(.url(url))
+                    imageNode.url = url
 				}
 			}
 			imageNode.style.width = ASDimensionMake(32)

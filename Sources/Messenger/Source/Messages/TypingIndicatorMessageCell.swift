@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 import NVActivityIndicatorView
-import PINCacheTexture
+
 //67x52 27x24
 class TypingIndicatorMessageCell: ASCellNode {
 	
@@ -42,7 +42,8 @@ class TypingIndicatorMessageCell: ASCellNode {
 			avatarNode.image = image
 		case .url(let url):
 			if let url = url {
-				avatarNode.setImageVM(.url(url))
+				//avatarNode.setImageVM(.url(url))
+                avatarNode.url = url
 			}
 		}
 	}

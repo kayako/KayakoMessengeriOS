@@ -6,7 +6,6 @@
 //  Copyright © 2017 Robin Malhotra. All rights reserved.
 //
 import AsyncDisplayKit
-import PINCacheTexture
 
 public struct AgentsHeaderModel {
 	var avatars: [AvatarViewModel]
@@ -58,9 +57,12 @@ public class AgentsHeaderView: ASDisplayNode {
 	
 	func load(_ agentsHeaderModel: AgentsHeaderModel) {
 		
-		for node in self.subnodes {
-			node.removeFromSupernode()
-		}
+        if let subnodes = self.subnodes {
+            for node in subnodes {
+                node.removeFromSupernode()
+            }
+        }
+
 		
 		self.avatarNodes = agentsHeaderModel.avatars.map {
 			let avatarImageNode = ASNetworkImageNode()
@@ -69,7 +71,8 @@ public class AgentsHeaderView: ASDisplayNode {
 				avatarImageNode.image = image
 			case .url(let url):
 				if let url = url {
-					avatarImageNode.setImageVM(.url(url))
+					//avatarImageNode.setImageVM(.url(url))
+                    avatarImageNode.url = url
 				}
 			}
 			avatarImageNode.style.width = ASDimensionMake(52)
