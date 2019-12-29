@@ -494,7 +494,7 @@ open class MessagesDataSource: NSObject, ASTableDataSource, ASTableDelegate, Inp
 		picker.dismiss(animated: true, completion: nil)
 	}
 	
-	public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+	public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		picker.dismiss(animated: true, completion: nil)
 		//FIXME PGDD CODE HERE.
 		guard case .loaded(let conversation, let pendingMessagesOperation, _) = conversationState,
@@ -503,8 +503,9 @@ open class MessagesDataSource: NSObject, ASTableDataSource, ASTableDelegate, Inp
 			return
 		}
 		
-		guard let referenceURL = info[UIImagePickerControllerReferenceURL] as? URL,
-			let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        //let imageURL = info[UIImagePickerControllerReferenceURL] as NSURL
+        guard let referenceURL = info[UIImagePickerController.InfoKey.referenceURL] as? URL,
+            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
 				return
 		}
 		

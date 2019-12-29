@@ -123,21 +123,17 @@
 		423882B11F0EAE8C002B2B0D /* Wrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423881E81F0EA65C002B2B0D /* Wrap.framework */; };
 		423882B21F0EAE8C002B2B0D /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423881E71F0EA65C002B2B0D /* Unbox.framework */; };
 		423882B31F0EAE8C002B2B0D /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827D1F0EAAE5002B2B0D /* AsyncDisplayKit.framework */; };
-		423882B41F0EAE8C002B2B0D /* StatefulViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882841F0EAAE5002B2B0D /* StatefulViewController.framework */; };
 		423882B51F0EAE8C002B2B0D /* Birdsong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827E1F0EAAE5002B2B0D /* Birdsong.framework */; };
 		423882B61F0EAE8C002B2B0D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882831F0EAAE5002B2B0D /* Starscream.framework */; };
 		423882B71F0EAE8C002B2B0D /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882811F0EAAE5002B2B0D /* PINOperation.framework */; };
-		423882B81F0EAE8C002B2B0D /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827F1F0EAAE5002B2B0D /* NVActivityIndicatorView.framework */; };
 		423882B91F0EAE8C002B2B0D /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882821F0EAAE5002B2B0D /* PINRemoteImage.framework */; };
 		423882BA1F0EAE8C002B2B0D /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882801F0EAAE5002B2B0D /* PINCache.framework */; };
 		423882BB1F0EAEB3002B2B0D /* Wrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423881E81F0EA65C002B2B0D /* Wrap.framework */; };
 		423882BC1F0EAEB3002B2B0D /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423881E71F0EA65C002B2B0D /* Unbox.framework */; };
 		423882BD1F0EAEB3002B2B0D /* AsyncDisplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827D1F0EAAE5002B2B0D /* AsyncDisplayKit.framework */; };
-		423882BE1F0EAEB3002B2B0D /* StatefulViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882841F0EAAE5002B2B0D /* StatefulViewController.framework */; };
 		423882BF1F0EAEB3002B2B0D /* Birdsong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827E1F0EAAE5002B2B0D /* Birdsong.framework */; };
 		423882C01F0EAEB3002B2B0D /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882831F0EAAE5002B2B0D /* Starscream.framework */; };
 		423882C11F0EAEB3002B2B0D /* PINOperation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882811F0EAAE5002B2B0D /* PINOperation.framework */; };
-		423882C21F0EAEB3002B2B0D /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4238827F1F0EAAE5002B2B0D /* NVActivityIndicatorView.framework */; };
 		423882C31F0EAEB3002B2B0D /* PINRemoteImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882821F0EAAE5002B2B0D /* PINRemoteImage.framework */; };
 		423882C41F0EAEB3002B2B0D /* PINCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423882801F0EAAE5002B2B0D /* PINCache.framework */; };
 		4241531D1F14E99A0005FF2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4241531A1F14E99A0005FF2A /* Assets.xcassets */; };
@@ -189,7 +185,6 @@
 
 /* Begin PBXFileReference section */
 		420B19CA1FC41E8F00BCD10A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BotQuestions.strings; sourceTree = "<group>"; };
-		423314CF1F94C5CE0049D5B5 /* PINCacheTexture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCacheTexture.framework; path = "../../PINCache-Texture/Carthage/Build/iOS/PINCacheTexture.framework"; sourceTree = "<group>"; };
 		423314D01F94C5EB0049D5B5 /* PINCacheTexture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCacheTexture.framework; path = Carthage/Build/iOS/PINCacheTexture.framework; sourceTree = "<group>"; };
 		4238818A1F0EA39D002B2B0D /* Authorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		4238818B1F0EA39D002B2B0D /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -301,12 +296,10 @@
 		4238823C1F0EA81A002B2B0D /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		4238827D1F0EAAE5002B2B0D /* AsyncDisplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AsyncDisplayKit.framework; path = Carthage/Build/iOS/AsyncDisplayKit.framework; sourceTree = "<group>"; };
 		4238827E1F0EAAE5002B2B0D /* Birdsong.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Birdsong.framework; path = Carthage/Build/iOS/Birdsong.framework; sourceTree = "<group>"; };
-		4238827F1F0EAAE5002B2B0D /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		423882801F0EAAE5002B2B0D /* PINCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINCache.framework; path = Carthage/Build/iOS/PINCache.framework; sourceTree = "<group>"; };
 		423882811F0EAAE5002B2B0D /* PINOperation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINOperation.framework; path = Carthage/Build/iOS/PINOperation.framework; sourceTree = "<group>"; };
 		423882821F0EAAE5002B2B0D /* PINRemoteImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PINRemoteImage.framework; path = Carthage/Build/iOS/PINRemoteImage.framework; sourceTree = "<group>"; };
 		423882831F0EAAE5002B2B0D /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
-		423882841F0EAAE5002B2B0D /* StatefulViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StatefulViewController.framework; path = Carthage/Build/iOS/StatefulViewController.framework; sourceTree = "<group>"; };
 		423882911F0EACC8002B2B0D /* MessengerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423882931F0EACC8002B2B0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		423882951F0EACC8002B2B0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -336,12 +329,10 @@
 				423882BB1F0EAEB3002B2B0D /* Wrap.framework in Frameworks */,
 				423882BC1F0EAEB3002B2B0D /* Unbox.framework in Frameworks */,
 				423882BD1F0EAEB3002B2B0D /* AsyncDisplayKit.framework in Frameworks */,
-				423882BE1F0EAEB3002B2B0D /* StatefulViewController.framework in Frameworks */,
 				423882BF1F0EAEB3002B2B0D /* Birdsong.framework in Frameworks */,
 				42F85F4C1F79FDED00938C0C /* KayakoMessenger.framework in Frameworks */,
 				423882C01F0EAEB3002B2B0D /* Starscream.framework in Frameworks */,
 				423882C11F0EAEB3002B2B0D /* PINOperation.framework in Frameworks */,
-				423882C21F0EAEB3002B2B0D /* NVActivityIndicatorView.framework in Frameworks */,
 				423882C31F0EAEB3002B2B0D /* PINRemoteImage.framework in Frameworks */,
 				423882C41F0EAEB3002B2B0D /* PINCache.framework in Frameworks */,
 			);
@@ -361,11 +352,9 @@
 				423882B11F0EAE8C002B2B0D /* Wrap.framework in Frameworks */,
 				423882B21F0EAE8C002B2B0D /* Unbox.framework in Frameworks */,
 				423882B31F0EAE8C002B2B0D /* AsyncDisplayKit.framework in Frameworks */,
-				423882B41F0EAE8C002B2B0D /* StatefulViewController.framework in Frameworks */,
 				423882B51F0EAE8C002B2B0D /* Birdsong.framework in Frameworks */,
 				423882B61F0EAE8C002B2B0D /* Starscream.framework in Frameworks */,
 				423882B71F0EAE8C002B2B0D /* PINOperation.framework in Frameworks */,
-				423882B81F0EAE8C002B2B0D /* NVActivityIndicatorView.framework in Frameworks */,
 				423882B91F0EAE8C002B2B0D /* PINRemoteImage.framework in Frameworks */,
 				423882BA1F0EAE8C002B2B0D /* PINCache.framework in Frameworks */,
 			);
@@ -673,15 +662,12 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
-				423314CF1F94C5CE0049D5B5 /* PINCacheTexture.framework */,
 				4238827D1F0EAAE5002B2B0D /* AsyncDisplayKit.framework */,
 				4238827E1F0EAAE5002B2B0D /* Birdsong.framework */,
-				4238827F1F0EAAE5002B2B0D /* NVActivityIndicatorView.framework */,
 				423882801F0EAAE5002B2B0D /* PINCache.framework */,
 				423882811F0EAAE5002B2B0D /* PINOperation.framework */,
 				423882821F0EAAE5002B2B0D /* PINRemoteImage.framework */,
 				423882831F0EAAE5002B2B0D /* Starscream.framework */,
-				423882841F0EAAE5002B2B0D /* StatefulViewController.framework */,
 				423881E71F0EA65C002B2B0D /* Unbox.framework */,
 				423881E81F0EA65C002B2B0D /* Wrap.framework */,
 				424153191F14E99A0005FF2A /* Resources */,
@@ -875,6 +861,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1170,7 +1157,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1194,7 +1181,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1212,7 +1199,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = MessengerExample;
 			};
 			name = Debug;
@@ -1231,7 +1218,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = MessengerExample;
 			};
 			name = Release;
@@ -1287,7 +1274,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1337,7 +1324,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1371,7 +1358,7 @@
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1400,7 +1387,7 @@
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1413,7 +1400,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KayakoMessenger.KayakoMessenger-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1426,7 +1413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KayakoMessenger.KayakoMessenger-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

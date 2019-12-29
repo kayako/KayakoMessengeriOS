@@ -201,9 +201,11 @@ class MessagesViewController: UIViewController, UIGestureRecognizerDelegate, ALT
 		
 		keyboardDelegate.controller = self
 		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardFrameChanged(notification:)), name: NSNotification.Name(rawValue: ALKeyboardFrameDidChangeNotification), object: nil)
-		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardDidHide(notification:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        
+        
+		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+		NotificationCenter.default.addObserver(keyboardDelegate, selector: #selector(keyboardDelegate.keyboardDidShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
 		
 		NotificationCenter.default.addObserver(forName: KayakoNotifications.unreadCountUpdated, object: nil, queue: .main) { [weak self] (notification) in
 			self?.updateUnreadCounter()

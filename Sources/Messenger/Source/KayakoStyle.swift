@@ -52,11 +52,11 @@ public enum ColorPallete {
 	white = UIColor.white
 }
 
-func stringAttributes(withSize size: CGFloat, weight: CGFloat, color: UIColor) -> [NSAttributedStringKey: Any] {
+func stringAttributes(withSize size: CGFloat, weight: CGFloat, color: UIColor) -> [NSAttributedString.Key: Any] {
 
 	return [
-		NSAttributedStringKey.font: UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: weight)),
-		NSAttributedStringKey.foregroundColor: color
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: weight)),
+        NSAttributedString.Key.foregroundColor: color
 	]
 }
 
@@ -92,7 +92,7 @@ enum KayakoLightStyle {
 		inputBorderColor = UIColor(red:0.80, green:0.81, blue:0.82, alpha:1.00),
 		inputBGColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00),
 		linkAttrs = stringAttributes(withSize: FontSize.body, weight: UIFontWeight.regular.rawValue, color: UIColor(red:0.31, green:0.69, blue:0.80, alpha:1.00)),
-		placeholderAttrs: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: ColorPallete.placeholderTextColor, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)]
+        placeholderAttrs: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: ColorPallete.placeholderTextColor, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.regular)]
 	}
 	
 	enum BotMessageAttributes {

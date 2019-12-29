@@ -8,7 +8,11 @@
 
 import AsyncDisplayKit
 
-import StatefulViewController
+//import StatefulViewController
+
+///TODO: Check how this is working without StatefulViewController
+///No updated version of StatefulViewController is available so we might have to fix this class
+///although this might not be required as all that is actually being called is the loading indicator view and the call to setupInitialViewState
 
 enum VCState {
 	case loading
@@ -17,7 +21,7 @@ enum VCState {
 	case loaded
 }
 
-class ConversationsViewController: UIViewController, ASTableDelegate, StatefulViewController {
+class ConversationsViewController: UIViewController, ASTableDelegate {
 
 	let tableNode = ASTableNode()
 	var dataSource: ConversationsDataSource?
@@ -51,7 +55,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 		
 		self.extendedLayoutIncludesOpaqueBars = true
 		
-		loadingView = LoadingIndicator().view
+		//loadingView = LoadingIndicator().view
 		
 		view.addSubnode(tableNode)
 		view.addSubnode(newConversationButton)
@@ -75,7 +79,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		setupInitialViewState()
+		//setupInitialViewState()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +103,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 		//: For sticky header
 		self.automaticallyAdjustsScrollViewInsets = true
 		self.title = "Conversations"
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 	}
 	
 	
@@ -127,7 +131,7 @@ class ConversationsViewController: UIViewController, ASTableDelegate, StatefulVi
 }
 
 extension UINavigationController {
-	open override var childViewControllerForStatusBarStyle: UIViewController? {
+    open override var childForStatusBarStyle: UIViewController? {
 		return visibleViewController
 	}
 }

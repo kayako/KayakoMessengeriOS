@@ -27,7 +27,7 @@ public struct Message: Unboxable {
 		self.subject = try unboxer.unbox(key: "subject")
 		self.contentText = try unboxer.unbox(key: "content_text")
 		self.creator = try unboxer.unbox(key: "creator")
-		self.source = unboxer.unbox(key: "source")
+		self.source = try unboxer.unbox(key: "source")
 		self.createdAt = try iso8601Date(unboxer: unboxer, key: "created_at")
 		self.updatedAt = try iso8601Date(unboxer: unboxer, key: "updated_at")
 		self.resourceURL = try unboxer.unbox(key: "resource_url")

@@ -58,7 +58,7 @@ open class RecentConversationsNode: ASCellNode {
 			let elements = [strongSelf.headerNode as ASLayoutElement] + strongSelf.conversationNodes.map{ $0 as ASLayoutElement }
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .start, alignItems: .stretch, children: elements)
 			let bg =  ASBackgroundLayoutSpec(child: stack, background: strongSelf.backgroundNode)
-			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 0, 0, 0), child: bg)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: bg)
 		}
 	
 	}
@@ -161,7 +161,7 @@ open class RecentConversationsCell: ASCellNode {
 		nameAndSubject.style.flexShrink = 1.0
 		let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 9.0, justifyContent: .start, alignItems: .center, children: [avatarNode, nameAndSubject])
 		
-		let inset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(9, 18, 9, 18), child: stack)
+        let inset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 9, left: 18, bottom: 9, right: 18), child: stack)
 		return ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .start, alignItems: .stretch, children: [inset, separatorLine])
 	}
 }
@@ -177,7 +177,7 @@ class ConversationHeaderCell: ASDisplayNode {
 		
 		self.addSubnode(productUpdatesNode)
 		self.addSubnode(viewAllNode)
-		viewAllNode.hitTestSlop = UIEdgeInsetsMake(-9, -9, -9, -9)
+        viewAllNode.hitTestSlop = UIEdgeInsets(top: -9, left: -9, bottom: -9, right: -9)
 		
 		self.backgroundColor = UIColor.white.withAlphaComponent(0.75)
 		
@@ -193,6 +193,6 @@ class ConversationHeaderCell: ASDisplayNode {
 	
 	override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 		let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0.0, justifyContent: .spaceBetween, alignItems: .center, children: [productUpdatesNode, viewAllNode])
-		return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(9, 18, 9, 18), child: stack)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 9, left: 18, bottom: 9, right: 18), child: stack)
 	}
 }

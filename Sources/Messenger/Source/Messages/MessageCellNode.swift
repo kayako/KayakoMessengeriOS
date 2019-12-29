@@ -41,7 +41,7 @@ class MessageCellNode: ASCellNode, ASTextNodeDelegate {
 			if self.messageViewModel.contentText.containsOnlyEmoji {
 				return NSMutableAttributedString(string: messageViewModel.contentText, attributes:  KayakoLightStyle.MessageAttributes.emojiBodyTextStyle)
 			} else {
-				textNode.textContainerInset = UIEdgeInsetsMake(9, 9, 9, 9)
+                textNode.textContainerInset = UIEdgeInsets(top: 9, left: 9, bottom: 9, right: 9)
 				textNode.backgroundColor = messageViewModel.isSender ? ColorPallete.primaryBrandingColor : KayakoLightStyle.MessageAttributes.senderMessageBackgroundColor
 				return NSMutableAttributedString(string: messageViewModel.contentText, attributes: messageViewModel.isSender ? KayakoLightStyle.MessageAttributes.lightBodyTextStyle : KayakoLightStyle.MessageAttributes.darkBodyTextStyle)
 			}
@@ -52,7 +52,7 @@ class MessageCellNode: ASCellNode, ASTextNodeDelegate {
 			.enumerateMatches(in: messageViewModel.contentText, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: messageViewModel.contentText.count)) {result, flags, stop in
 				if result?.resultType == NSTextCheckingResult.CheckingType.link, let url = result?.url {
 					var linkAttributes = KayakoLightStyle.MessageAttributes.linkAttrs
-					linkAttributes[NSAttributedStringKey.init("TextLinkAttributeName")] = url
+                    linkAttributes[NSAttributedString.Key.init("TextLinkAttributeName")] = url
 					attrString.addAttributes(linkAttributes, range: (result?.range)!)
 				}
 		}
@@ -70,7 +70,7 @@ class MessageCellNode: ASCellNode, ASTextNodeDelegate {
 				avatarNode.image = image
 			case .url(let url):
 				if let url = url {
-					avatarNode.setImageVM(.url(url))
+					//avatarNode.setImageVM(.url(url))
 				}
 			}
 		}

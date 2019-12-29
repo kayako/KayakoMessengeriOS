@@ -25,7 +25,7 @@ class MessageStatusNode: ASCellNode {
 		switch status {
 		case .failed, .bounced:
 			let attrString = NSMutableAttributedString(string: status.statusText, attributes: KayakoLightStyle.MessageStatusAttributes.grayedOutStyle)
-			attrString.addAttributes([NSAttributedStringKey.foregroundColor: ColorPallete.primaryFailureColor], range: NSMakeRange(attrString.string.count - "Resend".count, "Resend".count))
+            attrString.addAttributes([NSAttributedString.Key.foregroundColor: ColorPallete.primaryFailureColor], range: NSMakeRange(attrString.string.count - "Resend".count, "Resend".count))
 			statusTextNode.attributedText = attrString
 		case .delivered, .sending, .sent, .yetToSend, .custom:
 			statusTextNode.attributedText = NSAttributedString(string: status.statusText, attributes: KayakoLightStyle.MessageStatusAttributes.grayedOutStyle)
@@ -49,7 +49,7 @@ class MessageStatusNode: ASCellNode {
 		default:
 			break
 		}
-		tapButton.hitTestSlop = UIEdgeInsetsMake(-18, -9, -18, -9)
+        tapButton.hitTestSlop = UIEdgeInsets(top: -18, left: -9, bottom: -18, right: -9)
 		tapButton.backgroundColor = .clear
 	}
 	

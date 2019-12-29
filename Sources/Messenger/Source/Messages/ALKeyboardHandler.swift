@@ -16,7 +16,7 @@ class ALKeyboardHandler: NSObject {
 	
 	@objc func keyboardFrameChanged(notification: NSNotification) {
 		if let userInfo = notification.userInfo {
-			let frame = userInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect
+            let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
 			
 			guard let controller = controller else { return }
 			controller.textInputBar.frame = CGRect(x: frame.origin.x, y: frame.origin.y - CardPresentationManager.cardOffset, width: controller.keyboardObserver.frame.size.width, height: controller.keyboardObserver.frame.size.height)
@@ -41,13 +41,13 @@ class ALKeyboardHandler: NSObject {
 	@objc func keyboardWillShow(notification: NSNotification) {
 		guard let controller = controller,
 			let userInfo = notification.userInfo,
-			let frame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
+            let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
 			frame.height > 75 else { return }
 		
-		let animationTime = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-		let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        let animationTime = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let animationCurve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
 		
-		UIView.animate(withDuration: animationTime, delay: 0.0, options: UIViewAnimationOptions(rawValue: UInt(truncating: animationCurve)), animations: {
+        UIView.animate(withDuration: animationTime, delay: 0.0, options: UIView.AnimationOptions(rawValue: UInt(truncating: animationCurve)), animations: {
 			self.setInsets(frame: frame)
 			self.setOffsets(frame: frame)
 			controller.textInputBar.frame.origin.y = frame.origin.y - CardPresentationManager.cardOffset
@@ -62,13 +62,13 @@ class ALKeyboardHandler: NSObject {
 	@objc func keyboardDidHide(notification: NSNotification) {
 		guard let controller = controller,
 			let userInfo = notification.userInfo,
-			let frame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect,
+            let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
 			frame.height >= 75 else { return }
 		
-		let animationTime = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-		let animationCurve = userInfo[UIKeyboardAnimationCurveUserInfoKey] as! NSNumber
+        let animationTime = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let animationCurve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! NSNumber
 		
-		UIView.animate(withDuration: animationTime, delay: 0.0, options: UIViewAnimationOptions(rawValue: UInt(truncating: animationCurve)), animations: {
+        UIView.animate(withDuration: animationTime, delay: 0.0, options: UIView.AnimationOptions(rawValue: UInt(truncating: animationCurve)), animations: {
 			
 			self.setInsets(frame: frame)
 			controller.textInputBar.frame.origin.y = frame.origin.y - CardPresentationManager.cardOffset

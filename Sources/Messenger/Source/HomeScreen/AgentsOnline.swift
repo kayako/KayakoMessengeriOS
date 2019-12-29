@@ -82,20 +82,20 @@ class AgentsOnlineNode: ASCellNode {
 			var elements: [ASLayoutElement] = [strongSelf.headerNode]
 			strongSelf.headerNode.style.spacingAfter = 6.0
 			let avatarStack = ASStackLayoutSpec(direction: .horizontal, spacing: 9, justifyContent: .start, alignItems: .center, children: strongSelf.agentAvatars)
-			let avatarStackInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 18, 0, 9), child: avatarStack)
+            let avatarStackInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 9), child: avatarStack)
 			elements.append(avatarStackInset)
-			let onlineStatusInset = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 18, 9, 9), child: strongSelf.onlineStatusText)
+            let onlineStatusInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 18, bottom: 9, right: 9), child: strongSelf.onlineStatusText)
 			elements.append(onlineStatusInset)
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 7.0, justifyContent: .start, alignItems: .stretch, children: elements)
 			
 			let bg =  ASBackgroundLayoutSpec(child: stack, background: strongSelf.backgroundNode)
-			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 0, 0, 0), child: bg)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: bg)
 		}
 		self.transitionLayout(withAnimation: true, shouldMeasureAsync: true, measurementCompletion: nil)
 	}
 	
 	open override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 		let stack = ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .start, alignItems: .stretch, children: [container])
-		return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(9, 0, 9, 0), child: stack)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 9, left: 0, bottom: 9, right: 0), child: stack)
 	}
 }

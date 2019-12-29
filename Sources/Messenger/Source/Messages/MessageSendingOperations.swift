@@ -86,7 +86,7 @@ public class PendingMessagesOperations {
 			guard let type = message.attachments.first?.type,
 				case .image(let thumbnail) = type,
 				case .image(let image) = thumbnail,
-				let jpgData = UIImageJPEGRepresentation(image, 0.1),
+                let jpgData = image.jpegData(compressionQuality: 0.1),
 				let name = message.attachments.first?.name else { return nil }
 			
 			return AttachmentCreationModel(mimeType: "image/jpeg", data: jpgData, filename: name + ".jpeg")

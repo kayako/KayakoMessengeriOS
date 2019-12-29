@@ -126,7 +126,7 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
         
         _textView.maxNumberOfLines = defaultNumberOfLines()
         
-		if let color = KayakoLightStyle.MessageAttributes.placeholderAttrs[NSAttributedStringKey.foregroundColor] as? UIColor {
+        if let color = KayakoLightStyle.MessageAttributes.placeholderAttrs[NSAttributedString.Key.foregroundColor] as? UIColor {
 			_textView.placeholderColor = color
 		}
         
@@ -194,7 +194,7 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
 		let attributedMarketingString = NSMutableAttributedString(string: Bool.random() ? "Live Chat by Kayako" : "Messenger by Kayako")
 		let paragraphStyle = NSMutableParagraphStyle()
 		paragraphStyle.alignment = .right
-		attributedMarketingString.setAttributes([NSAttributedStringKey.paragraphStyle: paragraphStyle], range: NSRange.init(location: 0, length: attributedMarketingString.string.count))
+        attributedMarketingString.setAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange.init(location: 0, length: attributedMarketingString.string.count))
 		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingStyle, range: NSRange.init(location: 0, length: attributedMarketingString.string.count - 6))
 		attributedMarketingString.setAttributes(KayakoLightStyle.ReplyBoxAttributes.marketingBoldStyle, range: NSRange.init(location: attributedMarketingString.string.count - 6, length: 6))
 		
@@ -236,7 +236,7 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
     // MARK: - View positioning and layout -
 
     override public var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: defaultHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: defaultHeight)
     }
     
     override public func layoutSubviews() {
@@ -294,10 +294,10 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
         textView.frame = CGRect(x: textViewX, y: textViewY, width: textViewWidth - 26 - 6, height: textViewHeight)
 		
 		sendButton.frame = CGRect(x: self.frame.maxX - 26 - 9, y: textView.center.y - 13, width: 26, height: 26)
-		sendButton.hitTestSlop = UIEdgeInsetsMake(-9, -9, -9, -9)
+        sendButton.hitTestSlop = UIEdgeInsets(top: -9, left: -9, bottom: -9, right: -9)
 		
 		attachmentButton.frame = CGRect(x: 9, y: textView.frame.maxY + 18 , width: 15, height: 15)
-		attachmentButton.hitTestSlop = UIEdgeInsetsMake(-9, -9, -9, -9)
+        attachmentButton.hitTestSlop = UIEdgeInsets(top: -9, left: -9, bottom: -9, right: -9)
 		
 		marketingButton.frame = CGRect(x: self.frame.maxX - 130 - 9, y: attachmentButton.view.center.y - 7.5, width: 130, height: 15)
 		
@@ -326,7 +326,7 @@ public class ALTextInputBar: UIView, ALTextViewDelegate {
         let height = padding + newHeight
         
         for constraint in constraints {
-            if constraint.firstAttribute == NSLayoutAttribute.height && constraint.firstItem as! NSObject == self {
+            if constraint.firstAttribute == NSLayoutConstraint.Attribute.height && constraint.firstItem as! NSObject == self {
                 constraint.constant = height < defaultHeight ? defaultHeight : height
             }
         }

@@ -49,7 +49,7 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		inputContainer.layoutSpecBlock = {
 			_,_ in
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 10.0, justifyContent: .center, alignItems: .stretch, children: [self.headingNode, self.entryNode])
-			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(21, 15, 21, 15), child: stack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 21, left: 15, bottom: 21, right: 15), child: stack)
 		}
 		
 		self.addSubnode(submitButton)
@@ -95,11 +95,11 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 			}
 		}()
 		
-		let headingStyle: [NSAttributedStringKey: Any] = {
+        let headingStyle: [NSAttributedString.Key: Any] = {
 			switch state {
 			case .failed:
 				var headingStyle = KayakoLightStyle.BotMessageAttributes.headingStyle
-				headingStyle[NSAttributedStringKey.foregroundColor] = ColorPallete.primaryFailureColor
+                headingStyle[NSAttributedString.Key.foregroundColor] = ColorPallete.primaryFailureColor
 				return headingStyle
 			default:
 				return KayakoLightStyle.BotMessageAttributes.headingStyle
@@ -189,14 +189,14 @@ class BotTextQuestionNode: ASCellNode, ASEditableTextNodeDelegate {
 		switch state {
 		case .notAsked, .failed:
 			let inputAndSubmit = ASStackLayoutSpec(direction: .vertical, spacing: -1.0, justifyContent: .center, alignItems: .stretch, children: [inputContainer, submitButton])
-			let inputInsetted = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 59, 15, 50), child: inputAndSubmit)
+            let inputInsetted = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 59, bottom: 15, right: 50), child: inputAndSubmit)
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .stretch, children: [messageNode, inputInsetted])
-			let insetted = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(21, 0, 0, 0), child: stack)
+            let insetted = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 21, left: 0, bottom: 0, right: 0), child: stack)
 			return insetted
 		case .success:
 			let stack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .end, alignItems: .center, children: [successfulEntryContainer])
 			successfulEntryContainer.style.spacingAfter = 18.0
-			let insetted = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(4, 4, 4, 4), child: stack)
+            let insetted = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4), child: stack)
 			return insetted
 		}
 	}

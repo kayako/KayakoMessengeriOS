@@ -74,7 +74,7 @@ class HomeScreenViewController: UIViewController, ASTableDelegate {
 				return ASLayoutSpec()
 			}
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 0.0, justifyContent: .start, alignItems: .stretch, children: [tableNode])
-			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(18, 12, 0, 12), child: stack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 18, left: 12, bottom: 0, right: 12), child: stack)
 		}
 		
 		let barButtonItem = UIBarButtonItem(image: KayakoResources.closeButton.image, style: .plain, target: self, action: #selector(dismissVC))

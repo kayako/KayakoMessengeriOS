@@ -48,7 +48,7 @@ class FeedbackInputNode: ASDisplayNode {
 		inputContainer.layoutSpecBlock = {
 			[weak self] size,_ in
 			let stack = ASStackLayoutSpec(direction: .vertical, spacing: 10.0, justifyContent: .center, alignItems: .stretch, children: [self?.titleNode, self?.feedbackTextField].flatMap{ $0 })
-			return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(21, 15, 21, 15), child: stack)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 21, left: 15, bottom: 21, right: 15), child: stack)
 		}
 		
 		self.backgroundColor = .white
@@ -109,7 +109,7 @@ open class BotFeedbackSubmissionNode: ASDisplayNode {
 		super.init()
 		feedbackImageNode.image = KayakoResources.blob(botFeedback.feedback ?? .good, .deselected).image
 		var regularAttrs = KayakoLightStyle.BotMessageAttributes.textAnswerStyle
-		regularAttrs[NSAttributedStringKey.font] = UIFont.italicSystemFont(ofSize: FontSize.callout)
+        regularAttrs[NSAttributedString.Key.font] = UIFont.italicSystemFont(ofSize: FontSize.callout)
 		feedbackTextNode.attributedText = NSAttributedString(string: "\"\(botFeedback.feedbackText ?? "")\"", attributes: regularAttrs)
 		self.automaticallyManagesSubnodes = true
 		
@@ -182,7 +182,7 @@ open class BotFeedbackQuestionNode: ASCellNode {
 	
 	func load(_ feedback: BotFeedback) {
 		segmentedControl.style.height = ASDimensionMake(100)
-		(segmentedControl.view as? UISegmentedControl)?.addTarget(self, action: #selector(segmentTapped), for: UIControlEvents.valueChanged)
+        (segmentedControl.view as? UISegmentedControl)?.addTarget(self, action: #selector(segmentTapped), for: UIControl.Event.valueChanged)
 	}
 	
 	@objc func segmentTapped() {
