@@ -4,5 +4,6 @@ github "trilogy-group/kayako-PINCache-Texture"
 github "ninjaprox/NVActivityIndicatorView"
 github "johnsundell/unbox"
 github "johnsundell/wrap" ~> 3.0.1
-github "codeOfRobin/Birdsong" "updating-starscream"
+#github "codeOfRobin/Birdsong" "updating-starscream"
+github "codeOfRobin/Birdsong" "other-starscream"
 #github "sjrmanning/Birdsong" ~> 0.6

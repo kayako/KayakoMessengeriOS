@@ -1,5 +1,5 @@
 git "https://chromium.googlesource.com/webm/libwebp" "v0.6.0"
-github "codeOfRobin/Birdsong" "535d7ee96a2b0aa39fde3bf1825c09c7ebf8aa1a"
+github "codeOfRobin/Birdsong" "efd911236fc6bd9d593b6c5d5f407a755d31f2da"
 github "daltoniam/Starscream" "e6b65c6d9077ea48b4a7bdda8994a1d3c6969c8d"
 github "johnsundell/unbox" "4.0.0"
 github "johnsundell/wrap" "3.0.1"
