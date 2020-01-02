@@ -55,8 +55,6 @@ class ConversationsViewController: UIViewController, ASTableDelegate {
 		
 		self.extendedLayoutIncludesOpaqueBars = true
 		
-		//loadingView = LoadingIndicator().view
-		
 		view.addSubnode(tableNode)
 		view.addSubnode(newConversationButton)
 		
@@ -79,7 +77,6 @@ class ConversationsViewController: UIViewController, ASTableDelegate {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		//setupInitialViewState()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

@@ -11,15 +11,15 @@ import UIKit
 public let ALKeyboardFrameDidChangeNotification = "ALKeyboardFrameDidChangeNotification"
 
 public class ALKeyboardObservingView: UIView {
-
+    
     private weak var observedView: UIView?
     private var defaultHeight: CGFloat = 75
     
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: defaultHeight)
     }
-
-
+    
+    
     
     public override func willMove(toSuperview newSuperview: UIView?) {
         
@@ -30,8 +30,8 @@ public class ALKeyboardObservingView: UIView {
         
         super.willMove(toSuperview: newSuperview)
     }
-
-
+    
+    
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object as? NSObject == superview && keyPath == keyboardHandlingKeyPath() {
             keyboardDidChangeFrame(frame: superview!.frame)
