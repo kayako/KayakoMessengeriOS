@@ -62,7 +62,6 @@ public class KREClient {
 		
 		if let subscribedChannel = socket.channels[topic] {
 			channel = subscribedChannel
-			channel.on(event, callback: closure)
 		}
 	}
 	
@@ -72,11 +71,6 @@ public class KREClient {
 		}
 		// Presence support.
 		channel.presence.onStateChange = onStateChange
-	
-		
-		channel.onPresenceUpdate { (presence) in
-			print(presence.firstMetas())
-		}
 		
 		channel.presence.onJoin = { id, meta in
 //			print("Join: user with id \(id) with meta entry: \(meta)")

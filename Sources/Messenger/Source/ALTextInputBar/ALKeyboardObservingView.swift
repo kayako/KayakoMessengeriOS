@@ -11,15 +11,15 @@ import UIKit
 public let ALKeyboardFrameDidChangeNotification = "ALKeyboardFrameDidChangeNotification"
 
 public class ALKeyboardObservingView: UIView {
-
+    
     private weak var observedView: UIView?
     private var defaultHeight: CGFloat = 75
     
     override public var intrinsicContentSize: CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: defaultHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: defaultHeight)
     }
-
-
+    
+    
     
     public override func willMove(toSuperview newSuperview: UIView?) {
         
@@ -30,8 +30,8 @@ public class ALKeyboardObservingView: UIView {
         
         super.willMove(toSuperview: newSuperview)
     }
-
-
+    
+    
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object as? NSObject == superview && keyPath == keyboardHandlingKeyPath() {
             keyboardDidChangeFrame(frame: superview!.frame)
@@ -42,7 +42,7 @@ public class ALKeyboardObservingView: UIView {
     
     public func updateHeight(height: CGFloat) {
         for constraint in constraints {
-            if constraint.firstAttribute == NSLayoutAttribute.height && constraint.firstItem as! NSObject == self {
+            if constraint.firstAttribute == NSLayoutConstraint.Attribute.height && constraint.firstItem as! NSObject == self {
                 constraint.constant = height < defaultHeight ? defaultHeight : height
             }
         }
@@ -65,7 +65,7 @@ public class ALKeyboardObservingView: UIView {
     }
     
     private func keyboardDidChangeFrame(frame: CGRect) {
-		let userInfo: [AnyHashable : Any] = [UIKeyboardFrameEndUserInfoKey: NSValue(cgRect:frame)]
+        let userInfo: [AnyHashable : Any] = [UIResponder.keyboardFrameEndUserInfoKey: NSValue(cgRect:frame)]
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: ALKeyboardFrameDidChangeNotification), object: nil, userInfo: userInfo)
     }
     
